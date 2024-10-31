@@ -453,8 +453,18 @@ class Main {
       lineArray=line.split(",");//split is a function that takes a delimeter and splits a string into a 1D array using that delimeter
       //in our case the delimeter was a comma
 
-      usersData[i][0]=lineArray[0];//the name
-      usersData[i][1]=lineArray[1];//the minimon
+      if (lineArray.length > 1)
+      {
+        usersData[i][0]=lineArray[0];//the name
+        usersData[i][1]=lineArray[1];//the minimon
+      }
+
+      else if (lineArray.length == 1) //when the user starts this makes sure there's no out of bound error
+      {
+        usersData[i][0]=lineArray[0];//the name
+        usersData[i][1]="";//the minimon
+      }
+
       line=br.readLine();
       i++;
     }
